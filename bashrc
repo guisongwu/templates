@@ -128,8 +128,6 @@ fi
 #                               Personal Settings
 #
 # ================================================================================
-# papp_cloud login -u wleng@lsec.cc.ac.cn -p
-# 123456Lsec@
 
 
 export LANG=en_US.UTF-8
