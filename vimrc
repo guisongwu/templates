@@ -5,7 +5,7 @@ set nocompatible
 let mapleader=" "
 
 " Basic Settings for Better Looking
-set number
+" set number
 set norelativenumber " Disable relative line numbers
 " set cursorline
 
@@ -15,6 +15,7 @@ map Q :q<CR>
 map D :q!<CR>
 map R :source $MYVIMRC<CR>
 
+ 
 " Indentation
 set autoindent
 set smartindent
@@ -42,13 +43,15 @@ nnoremap <LEADER><CR> :nohlsearch<CR>
 set tag=./tags,../tags,../../tags,../../../tags
 
 " Window Splitting Behavior
-set splitbelow
 set splitright
+set splitbelow
 cnoreabbrev vr vertical resize
 nnoremap z <C-w>w
 nnoremap r <C-w>r
 nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
+" nnoremap <up> :resize -2<CR>
+" nnoremap <down> :resize +2<CR>
 
 
 
@@ -87,6 +90,7 @@ call plug#end()
 
 
 
+
 " =================================== Plugin Configurations ===================================
 "
 " --------------------------------------Snazzy -----------------------------------------
@@ -98,7 +102,20 @@ let g:vimtex_compiler_method = 'latexmk'
 " let g:vimtex_view_method = 'zathura'
 " let g:vimtex_quickfix_mode = 0
 let maplocalleader = " "
-
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : 'build',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'hooks' : [],
+    \ 'options' : [
+    \   '-pdf',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 
 " ------------------------------------- markdown -------------------------------------
@@ -111,6 +128,16 @@ nnoremap <C-p> :MarkdownPreviewToggle<CR>
 
 " ------------------------------------- Airline ---------------------------------------
 let g:airline#extensions#whitespace#enabled = 0
+" let g:airline#extensions#ale#enabled = 0
+" let g:airline#extensions#syntastic#enabled = 0
+" let g:airline#extensions#tagbar#enabled = 0
+" let g:airline#extensions#branch#enabled = 0
+" let g:airline#extensions#hunks#enabled = 0
+" let g:airline_section_a = airline#section#create(['mode'])
+" let g:airline_section_b = '%f'
+" let g:airline_section_c = ''
+" let g:airline_section_x = ''
+let g:airline_section_y = ''
 let g:airline_section_z = '%l/%L : %c %p%%'
 
 
