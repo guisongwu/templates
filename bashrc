@@ -162,8 +162,8 @@ export PETSC_DIR=/opt/petsc-3.23.2
 export HDF5=/opt/hdf5-1.14.6-parallel
 export NETCDF=/opt/netcdf-c-fortran
 export PNETCDF=/opt/pnetcdf
-# export PIO=/opt/pio-2.6.6
-# export PAPI=/opt/papi-7.2.0b2
+export PIO=/opt/pio-2.6.6
+export PAPI=/opt/papi-7.2.0b2
 
 # export PATH=/home/wugs/bin:$PATH
 # export PATH=/home/wugs/bin:$HDF5/bin:$NETCDF/bin:$PNETCDF/bin:$PAPI/bin:$PATH
