@@ -128,6 +128,8 @@ fi
 #                               Personal Settings
 #
 # ================================================================================
+# papp_cloud login -u wleng@lsec.cc.ac.cn -p
+# 123456Lsec@
 
 
 export LANG=en_US.UTF-8
@@ -135,6 +137,7 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=C.UTF-8
 
 alias tags='ctags --exclude=@.ctagsignore -R .'
+alias papplogin='papp_cloud login -u wleng@lsec.cc.ac.cn -p'
 alias bscc='papp_cloud ssh scb4580@bscc-a6'
 alias pscp='papp_cloud scp'
 alias rm='trash-put'

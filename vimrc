@@ -27,6 +27,8 @@ set softtabstop=4
 " Smooth Scrolling 
 noremap J 5j
 noremap K 5k
+noremap H 5h
+noremap L 5l
 
 " Enable move across lines with h,l
 set whichwrap+=h,l
@@ -50,8 +52,8 @@ nnoremap z <C-w>w
 nnoremap r <C-w>r
 nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
-" nnoremap <up> :resize -2<CR>
-" nnoremap <down> :resize +2<CR>
+nnoremap <up> :resize -2<CR>
+nnoremap <down> :resize +2<CR>
 
 
 
@@ -65,6 +67,9 @@ autocmd BufReadPost *
 " Clipboard Integration
 vnoremap <leader>y "+y
 nnoremap <leader>p "+p
+
+nnoremap <leader>sp :set paste<CR>
+nnoremap <leader>np :set nopaste<CR>
 
 
 " =================================== Plugin Manager ===================================
@@ -84,6 +89,7 @@ Plug 'lervag/vimtex'
 Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/vim-easy-align'
 Plug 'github/copilot.vim'
 
 call plug#end()
@@ -178,6 +184,10 @@ inoremap <C-j> <Plug>(copilot-next)
 inoremap <C-k> <Plug>(copilot-previous)
 inoremap <C-\> <Plug>(copilot-suggest)
 
-
+" ----------------------------------- vim-easy-align -----------------------------------
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
