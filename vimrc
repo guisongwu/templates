@@ -90,6 +90,7 @@ Plug 'preservim/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
+Plug 'wakatime/vim-wakatime'
 Plug 'github/copilot.vim'
 
 call plug#end()
@@ -176,7 +177,7 @@ let g:ycm_auto_trigger = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_hover_delay = 0
 let g:ycm_auto_hover = 0
-
+let g:ycm_clangd_binary_path = "/usr/bin/clangd-20"
 
 " -------------------------------------- Copilot ---------------------------------------
 " Copilot 其他快捷键

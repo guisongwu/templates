@@ -76,7 +76,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias LS=ls
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
@@ -92,9 +91,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias j='jobs'
 alias f='fg'
-
+alias j='jobs'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -136,7 +134,8 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=C.UTF-8
 
-alias tags='ctags --exclude=@.ctagsignore -R .'
+alias tags='ctags --exclude=@.tagsignore -R .'
+
 alias papplogin='papp_cloud login -u wleng@lsec.cc.ac.cn -p'
 alias bscc='papp_cloud ssh scb4580@bscc-a6'
 alias pscp='papp_cloud scp'
@@ -150,14 +149,13 @@ export http_proxy=http://127.0.0.1:7897
 export all_proxy=socks5://127.0.0.1:7897
 
 
-# MPI environment1: openmpi-4.1.6 installed using "sudo apt install libopenmpi-dev"
+# MPI environment 1: openmpi-4.1.6 installed via "sudo apt install libopenmpi-dev"
 # bin:     /usr/bin
 # lib:     /usr/lib/x86_64-linux-gnu/openmpi/lib
 # include: /usr/lib/x86_64-linux-gnu/openmpi/include
 
-# MPI environment2: openmpi-5.0.8 installed from source 
+# MPI environment 2: openmpi-5.0.8 installed from source 
 # prefix = /opt/openmpi-5.0.8
-
 
 
 # Softs install path
