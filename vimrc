@@ -50,10 +50,11 @@ set splitbelow
 cnoreabbrev vr vertical resize
 nnoremap z <C-w>w
 nnoremap r <C-w>r
+nnoremap <C-c> zc
 nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
-nnoremap <up> :resize -2<CR>
-nnoremap <down> :resize +2<CR>
+" nnoremap <up> :resize -2<CR>
+" nnoremap <down> :resize +2<CR>
 
 
 
@@ -105,25 +106,26 @@ let g:SnazzyTransparent = 1
 color snazzy
 
 " ------------------------------------- vimtex --------------------------------------
+let g:maplocalleader = " "
 let g:vimtex_compiler_method = 'latexmk'
-" let g:vimtex_view_method = 'zathura'
-" let g:vimtex_quickfix_mode = 0
-let maplocalleader = " "
+let g:vimtex_compiler_latexmk_engines = {
+      \ '_' : '-pdfxe',
+      \}
 let g:vimtex_compiler_latexmk = {
-    \ 'build_dir' : 'build',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'hooks' : [],
-    \ 'options' : [
-    \   '-pdf',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+      \ 'build_dir' : 'build',
+      \ 'callback' : 1,
+      \ 'continuous' : 1,
+      \ 'executable' : 'latexmk',
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ],
+      \}
 
+let g:vimtex_fold_enabled = 1
+set foldmethod=expr
 
 " ------------------------------------- markdown -------------------------------------
 let g:mkdp_auto_start = 0

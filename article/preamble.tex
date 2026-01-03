@@ -1,0 +1,97 @@
+
+% ===============================
+% Chinese + fonts (XeLaTeX/LuaLaTeX)
+% ===============================
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex} % it handles fontspec loading for Chinese
+\setmainfont{TeX Gyre Termes} % like Times New Roman \textrm{...}
+\setsansfont{TeX Gyre Heros}  % like Arial \textsf{...}
+\setmonofont{TeX Gyre Cursor} % like Consolas \texttt{...}
+
+% CJK fonts (Noto fonts from Google)
+\setCJKmainfont{Noto Serif CJK SC}  % Song Ti
+\setCJKsansfont{Noto Sans CJK SC}   % Hei Ti \textsf{...}
+\setCJKmonofont{Noto Sans Mono CJK SC} % Mono Font \texttt{...}
+
+
+% ===============================
+% page layout
+% ===============================
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{microtype}
+
+
+% ===============================
+% math packages
+% ===============================
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+
+% ===============================
+% graphics
+% ===============================
+\usepackage{graphicx}
+\graphicspath{{Images/}{./}}
+\usepackage{subcaption}
+\usepackage{wrapfig} % wrap text around figures (\begin{wrapfigure}...)
+
+
+% ===============================
+% colors
+% ===============================
+\usepackage{xcolor}  % color text (\textcolor{red}{...})
+
+
+% ===============================
+% drawing packages
+% ===============================
+\usepackage{tikz}
+\usetikzlibrary{
+    arrows.meta,     % more modern arrow tips
+    calc,            % coordinate calculations
+    positioning,     % relative position（right=of ...）
+    decorations.pathmorphing, % 
+    patterns,        %
+    shapes.geometric,%
+    fit              % 
+}
+
+
+% ===============================
+% tables
+% ===============================
+\usepackage{booktabs} % better tables
+\usepackage{array}    % better arrays and tabulars
+\usepackage{multirow} % multirow cells in tables
+
+
+% ===============================
+% bibliography (recommended)
+% ===============================
+\usepackage[
+    backend=biber,
+    style=authoryear,
+    sorting=nyt
+    ]{biblatex} % \cite{key} for citation
+                % \printbibliography to print the reference list
+\addbibresource{references.bib}
+
+
+% ===============================
+% hyperlinks 
+% ===============================
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+
+% ===============================
+% outside files
+% ===============================
+\input{mathcmd}
+\input{theorem}

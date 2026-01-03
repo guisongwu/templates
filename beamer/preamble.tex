@@ -1,0 +1,88 @@
+
+% ===============================
+% Chinese + fonts (XeLaTeX/LuaLaTeX)
+% ===============================
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex} % it handles fontspec loading for Chinese
+\setmainfont{TeX Gyre Termes} % like Times New Roman \textrm{...}
+\setsansfont{TeX Gyre Heros}  % like Arial \textsf{...}
+\setmonofont{TeX Gyre Cursor} % like Consolas \texttt{...}
+
+% CJK fonts (Noto fonts from Google)
+\setCJKmainfont{Noto Serif CJK SC}  % Song Ti
+\setCJKsansfont{Noto Sans CJK SC}   % Hei Ti \textsf{...}
+\setCJKmonofont{Noto Sans Mono CJK SC} % Mono Font \texttt{...}
+
+
+% ===============================
+% page layout
+% ===============================
+\setbeamertemplate{navigation symbols}{}
+
+
+% ===============================
+% math packages
+% ===============================
+\usepackage{amsmath,bm}
+
+
+% ===============================
+% graphics
+% ===============================
+\usepackage{graphicx}
+\graphicspath{{Images/}{./}}
+
+
+% ===============================
+% TikZ (for diagrams)
+% ===============================
+\usepackage{tikz}
+\usetikzlibrary{
+    arrows.meta,
+    calc,
+    positioning,
+    decorations.pathmorphing,
+    patterns,
+    shapes.geometric,
+    fit
+}
+
+
+% ===============================
+% tables
+% ===============================
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+
+
+% ===============================
+% bibliography (biblatex)
+% ===============================
+\usepackage[backend=biber,style=authoryear,sorting=nyt]{biblatex}
+\addbibresource{references.bib}
+
+
+% ===============================
+% hyperlinks
+% (beamer loads hyperref automatically)
+% ===============================
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     citecolor=blue,
+%     urlcolor=blue
+% }
+
+
+% ===============================
+% settings from latextemplates.com
+% ===============================
+\usetheme{Madrid} % layout theme
+\usefonttheme{default}
+\useinnertheme{circles}
+
+
+% ===============================
+% custom math commands (optional)
+% ===============================
+\input{mathcmd}

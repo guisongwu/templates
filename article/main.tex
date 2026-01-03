@@ -1,0 +1,232 @@
+\documentclass[11pt,a4paper]{article}
+
+\input{preamble}
+
+\title{Article Demo: Using \texttt{preamble.tex}, \texttt{mathcmd.tex}, \texttt{theorem.tex}}
+\author{song wu}
+\date{\today}
+
+% ==============================
+\begin{document}
+% ==============================
+\maketitle
+
+\begin{abstract}
+This demo exercises most packages and all commands/environments defined in the provided files:
+\texttt{fontspec}, page layout, math tools, figures (\texttt{graphicx/subcaption/wrapfig}),
+TikZ libraries, tables, \texttt{hyperref}, and \texttt{biblatex}.
+We cite \textcite{lamport1994} and also \parencite{einstein1905}.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Math macros from \texttt{mathcmd.tex}}
+\subsection{Basic sets and constants}
+这是中文测试。基础数学符号测试。
+We use $\R,\N,\Z,\Q$ and $\ee,\ii$:
+\[
+  \ee^{\ii\pi}+1=0,\qquad
+  \int_0^1 x^2\,\dd x=\frac13.
+\]
+
+\subsection{Vector calculus operators}
+Let $u(x,y)=x^2+y^2$ and $\bm{v}(x,y)=(x,-y)^\top$.
+Then we can write
+\[
+  \grad u,\quad
+  \diver \bm{v},\quad
+  \curl \bm{v}.
+\]
+(Here we mainly show the macros/typesetting; \\
+the actual values depend on the dimension/convention.)
+
+\subsection{Function spaces}
+We reference the function spaces:
+\[
+  u\in\Hone,\quad
+  f\in\Ltwo,\quad
+  \bm{u}\in\Hdiv,\quad
+  \bm{w}\in\Hcurl.
+\]
+
+\subsection{Linear algebra operators}
+Declared operators:
+\[
+  \rank(A),\quad \tr(A),\quad \diag(1,2,3),\quad \trace(A).
+\]
+Example:
+\[
+  A=\begin{pmatrix}2&0\\0&1\end{pmatrix}
+  \Rightarrow \rank(A)=2,\, \tr(A)=3,\ \trace(A)=3,\,\det(A)=2.
+\]
+
+\section{Theorem-like environments from \texttt{theorem.tex}}
+
+\begin{definition}[SPD matrix]
+A matrix $A\in\R^{n\times n}$ is symmetric positive definite (SPD) if
+$A=A^\top$ and $\bm{x}^\top A\bm{x}>0$ for all $\bm{x}\neq 0$.
+\end{definition}
+
+\begin{assumption}
+Assume $A$ is SPD.
+\end{assumption}
+
+\begin{lemma}
+If $A$ is SPD, then all eigenvalues of $A$ are positive.
+\end{lemma}
+
+\begin{theorem}
+If $A$ is SPD, then $\tr(A)>0$.
+\end{theorem}
+
+\begin{proof}
+SPD implies eigenvalues $\lambda_i>0$. Then $\tr(A)=\sum_i \lambda_i>0$.
+For general LaTeX conventions, see \textcite{lamport1994}.
+\end{proof}
+
+\begin{proposition}
+If $A$ is SPD and $D=\diag(d_1,\dots,d_n)$ with all $d_i>0$, then $DAD$ is SPD.
+\end{proposition}
+
+\begin{corollary}
+If $A$ is SPD, then $\trace(A^{-1})>0$.
+\end{corollary}
+
+\begin{example}
+Let $A=\diag(2,1)$. Then $A$ is SPD and $\tr(A)=3$.
+\end{example}
+
+\begin{remark}
+All these environments share the same counter (reset by section), \\
+as configured in \texttt{theorem.tex}.
+\end{remark}
+
+\begin{note}
+This document uses \texttt{fontspec}, so compile with XeLaTeX or LuaLaTeX.
+\end{note}
+
+\section{Graphics: \texttt{wrapfig}, \texttt{subcaption}, \texttt{graphicx}}
+
+\subsection{Wrapfigure demo}
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.95]
+        \draw[->] (-0.2,0) -- (2.6,0) node[right] {$x$};
+        \draw[->] (0,-0.2) -- (0,2.2) node[above] {$y$};
+        \draw[thick,blue,domain=0:2.3,samples=60] plot (\x,{0.4*\x*\x});
+        \node[draw,rounded corners,fill=blue!10] at (1.6,1.7) {$y=0.4x^2$};
+    \end{tikzpicture}
+    \caption{A wrapped TikZ figure.}
+\end{wrapfigure}
+
+This paragraph demonstrates \texttt{wrapfig}. 
+Add a few lines of text so the wrapping is clearly visible.
+Here is some more text to illustrate how the figure wraps around the text.
+The figure is placed on the right side of the page, and the text flows around it.
+You can adjust the width of the figure and the placement (left or right) as needed.
+Continue adding text to see how it interacts with the wrapped figure.
+This is useful for including small figures or diagrams without interrupting the flow of the text.
+
+\subsection{Subcaption demo (four figures)}
+
+\begin{figure}[htbp] % 2 x 2
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{call-of-duty.jpeg}
+        \caption{call of duty}
+        \label{fig:a}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{f1-the-movie.jpg}
+        \caption{f1 the movie}
+        \label{fig:b}
+    \end{subfigure}
+
+    \medskip  % 行间距（推荐）
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{naraka-bladepoint.jpeg}
+        \caption{naraka bladepoint}
+        \label{fig:c}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{your-name-shooting.jpg}
+        \caption{your name shooting}
+        \label{fig:d}
+    \end{subfigure}
+
+    \caption{A 2×2 layout of four images}
+    \label{fig:2x2}
+\end{figure}
+
+
+
+
+\subsection{TikZ libraries demo: calc, patterns, shapes, decorations}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \draw[thick] (0,0) rectangle (4,2);
+            \draw[very thick,-{Stealth[length=3mm]},red] (0.6,0.6) -- (3.4,1.4) node[right] {$\bm{u}$};
+            \node[below] at (2,0) {box};
+        \end{tikzpicture}
+        \caption{Arrow tip from \texttt{arrows.meta}.}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \node[draw,circle,minimum size=16mm,fill=green!10] (A) at (0,0) {$\R^2$};
+            \node[draw,rounded corners,minimum width=30mm,minimum height=12mm,
+                right=18mm of A,fill=yellow!10] (B) {$\Hcurl$};
+            \draw[-{Stealth[length=3mm]},thick] (A) -- node[above] {map} (B);
+            % fit library demo
+            \node[draw,dashed,fit=(A)(B),inner sep=4mm,label=above:{fit}] {};
+        \end{tikzpicture}
+        \caption{Positioning + fit.}
+    \end{subfigure}
+    \caption{Two subfigures without external image files.}
+\end{figure}
+
+
+\section{Colors: \texttt{xcolor}}
+We can also show colored text:\textcolor{red}{this is red}, \textcolor{blue}{this is blue}.
+
+
+
+\section{Tables: \texttt{booktabs}, \texttt{array}, \texttt{multirow}}
+
+\begin{table}[htbp]
+    \centering
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{>{\bfseries}l c c}
+        \toprule
+        Item & Example & Note \\
+        \midrule
+        \multirow{2}{*}{Trace} & $\tr(A)$ & operator \\
+                               & $\trace(A)$ & alias \\
+        Rank & $\rank(A)$ & operator \\
+        Space & $\Hdiv,\ \Hcurl$ & macros \\
+        \bottomrule
+    \end{tabular}
+    \caption{A table demonstrating booktabs + array + multirow.}
+\end{table}
+
+\section{Hyperlinks and bibliography}
+
+A URL: \url{https://www.latex-project.org}. A clickable link: \href{https://ctan.org}{CTAN}.
+
+We cite \parencite{trefethen1997} for numerical linear algebra.
+
+\printbibliography
+
+% ==============================
+\end{document}
+% ==============================

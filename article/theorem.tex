@@ -1,0 +1,32 @@
+
+% \newtheorem{<env>}{<Title>} ---- define a new environment
+% \newtheorem{<env>}{<Title>}[<reset>]
+% \newtheorem{<env>}[<share>]{<Title>}
+
+% ===============================
+% Theorem environments
+% ===============================
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% ===============================
+% Definition environments
+% ===============================
+\theoremstyle{definition}
+
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+
+% ===============================
+% Remark environments
+% ===============================
+\theoremstyle{remark}
+
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
