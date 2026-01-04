@@ -1,0 +1,151 @@
+\documentclass[11pt]{beamer}
+
+\input{preamble}
+
+\title[Short Title]{Full Presentation Title}
+\subtitle{Optional Subtitle}
+\author[James Cook \and Roald Amundsen]{Capt. James Cook \and Roald Amundsen}
+\institute[UC]{University of Cambridge \\ \smallskip \textit{james@LaTeXTemplates.com}}
+\date[\today]{International Symposium of Explorers \\ \today}
+
+% ============================
+\begin{document}
+% ============================
+
+
+
+%------------------------------------------------
+\begin{frame}
+	\titlepage
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Presentation Overview}
+	\tableofcontents
+\end{frame}
+%------------------------------------------------
+
+
+
+\section{Text Examples}
+\subsection{Paragraphs and Lists}
+%------------------------------------------------
+\begin{frame}{中文测试}
+	\begin{quote}
+		Sed diam enim, sagittis nec \alert{condimentum} sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio.\\
+		--- Someone, somewhere\ldots
+	\end{quote}
+	\bigskip % Vertical whitespace
+	Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis.
+\end{frame}
+%------------------------------------------------
+
+
+
+\subsection{Columns}
+%------------------------------------------------
+\begin{frame}{Multiple Columns}
+	\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.45\textwidth} % Left column width
+			\textbf{Heading}
+			\begin{enumerate}
+				\item Statement
+				\item Explanation
+				\item Example
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth} % Right column width
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+		\end{column}
+	\end{columns}
+\end{frame}
+%------------------------------------------------
+
+
+
+\section{Table and Figure Examples}
+%------------------------------------------------
+\begin{frame}
+    \frametitle{Table \& Citation Example}
+	\framesubtitle{Subtitle} % Optional subtitle
+	\begin{table}
+		\begin{tabular}{l l l}
+			\toprule
+			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+			\midrule
+			Treatment 1 & 0.0003262 & 0.562 \\
+			Treatment 2 & 0.0015681 & 0.910 \\
+			Treatment 3 & 0.0009271 & 0.296 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Table caption}
+	\end{table}
+    An example of the \texttt{\textbackslash textcite} or \texttt{\textbackslash parencite} command to cite within the presentation and \texttt{\textbackslash footfullcite} to show the bibliography on the bottom: This statement requires citation \parencite{p1,p2}\footfullcite{p1}\footfullcite{p2}
+\end{frame}
+%------------------------------------------------
+
+
+
+\section{Mathematics}
+\subsection{Blocks}
+%------------------------------------------------
+\begin{frame}{Blocks of Highlighted Text \& Definitions}
+	\begin{block}{Block Title} % first parameter: block, exampleblock, alertblock; 
+        % second parameter: title(can be empty)
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+	\end{block}
+	\begin{block}{} % Block without title
+		Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci.
+	\end{block}
+	\begin{definition}
+		A \alert{prime number} is a number that has exactly two divisors.
+	\end{definition}
+	% \smallskip % Vertical whitespace
+	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}[allowframebreaks]{References}
+    % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
+    \footnotesize
+    \printbibliography
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}{test url}
+    \begin{itemize}
+        \item \url{https://www.latextemplates.com}
+        \item \href{https://www.latextemplates.com}{LaTeX Templates}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+	\begin{center}
+        {\Huge Thank You!}
+
+		\bigskip\bigskip % Vertical whitespace
+
+		{\LARGE Questions? Comments?}
+	\end{center}
+\end{frame}
+%------------------------------------------------
+
+
+
+% ============================
+\end{document} 
+% ============================
