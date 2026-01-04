@@ -160,15 +160,15 @@ export all_proxy=socks5://127.0.0.1:7897
 # prefix = /opt/openmpi-5.0.8
 
 
+
 # export PETSC=/home/wugs/software/petsc-3.23.2/src/ksp/ksp/tutorials
 # Softs install path
-# export PETSC_DIR=/opt/petsc
+export PETSC_DIR=/opt/petsc
 # export HDF5=/opt/hdf5-1.14.6-parallel
 # export NETCDF=/opt/netcdf-c-fortran
 # export PNETCDF=/opt/pnetcdf
 # export PIO=/opt/pio-2.6.6
 # export PAPI=/opt/papi-7.2.0b2
-
 
 export PATH=/home/wugs/software/glvis-4.4:/home/wugs/bin:$PATH
 # export PATH=/home/wugs/bin:$HDF5/bin:$NETCDF/bin:$PNETCDF/bin:$PAPI/bin:$PATH
