@@ -1,12 +1,15 @@
 " Use Vim defaults instead of Vi ones
 set nocompatible 
 
+
 " Leader
 let mapleader=" "
 
+map <leader>d :colorscheme delek<CR>
+
 " Basic Settings for Better Looking
-" set number
-set norelativenumber " Disable relative line numbers
+set nonumber
+" set relativenumber
 " set cursorline
 
 " Easy Save, Quit and Source
@@ -15,14 +18,14 @@ map Q :q<CR>
 map D :q!<CR>
 map R :source $MYVIMRC<CR>
 
- 
+
 " Indentation
-set autoindent
-set smartindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
+set smartindent
 
 " Smooth Scrolling 
 noremap J 5j
@@ -123,9 +126,10 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-
-let g:vimtex_fold_enabled = 1
-set foldmethod=expr
+" let g:vimtex_fold_enabled = 1
+" set foldmethod=expr
+set foldmethod=marker
+set foldmarker={{{,}}}
 
 " ------------------------------------- markdown -------------------------------------
 let g:mkdp_auto_start = 0
@@ -155,7 +159,7 @@ let g:airline_section_z = '%l/%L : %c %p%%'
 nnoremap tt :NERDTreeToggle<CR>
 nnoremap tf :NERDTreeFind<CR>
 
-" ------------------------------------- nerdtree-git -------------------------------------
+" ----------------------------------- nerdtree-git -------------------------------------
 let g:NERDTreeGitStatusIndicatorMapCustom = {
 			\ 'Modified'  :'✹',
 			\ 'Staged'    :'✚',

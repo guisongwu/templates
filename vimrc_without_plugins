@@ -1,0 +1,77 @@
+" Use Vim defaults instead of Vi ones
+set nocompatible 
+
+" Leader
+let mapleader=" "
+
+" Basic Settings for Better Looking
+" set number
+set norelativenumber " Disable relative line numbers
+" set cursorline
+
+" Easy Save, Quit and Source
+map W :w<CR>
+map Q :q<CR>
+map D :q!<CR>
+map R :source $MYVIMRC<CR>
+
+ 
+" Indentation
+set autoindent
+set smartindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" Smooth Scrolling 
+noremap J 5j
+noremap K 5k
+noremap H 5h
+noremap L 5l
+
+" Enable move across lines with h,l
+set whichwrap+=h,l
+
+" Search Settings
+set hlsearch
+exec "nohlsearch"
+set incsearch
+set ignorecase
+set smartcase
+nnoremap <LEADER><CR> :nohlsearch<CR>
+
+" Set tags file search path
+set tag=./tags,../tags,../../tags,../../../tags
+
+" Window Splitting Behavior
+set splitright
+set splitbelow
+cnoreabbrev vr vertical resize
+nnoremap z <C-w>w
+nnoremap r <C-w>r
+nnoremap <C-c> zc
+nnoremap <left> :vertical resize -5<CR>
+nnoremap <right> :vertical resize +5<CR>
+" nnoremap <up> :resize -2<CR>
+" nnoremap <down> :resize +2<CR>
+
+
+
+" Auto return to last edit position when opening a file
+autocmd BufReadPost *
+	    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+		\ |   exe "normal! g`\""
+        \ | endif
+
+
+" Clipboard Integration
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+
+nnoremap <leader>sp :set paste<CR>
+nnoremap <leader>np :set nopaste<CR>
+
+set foldmethod=marker
+set foldmarker={{{,}}}
+
