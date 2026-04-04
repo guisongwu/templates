@@ -137,13 +137,10 @@ alias lcc='latexmk -C -bibtex && rm -f *.nav *.snm *.vrb *.fls'
 alias gt='git status'
 alias bmake='bear -- make'
 
-alias papplogin='papp_cloud login -u wleng@lsec.cc.ac.cn -p'
-alias bscc='papp_cloud ssh scb4580@bscc-a6'
+alias papplogin='papp_cloud login -u xxxx@xxxx -p'
+alias bscc='papp_cloud ssh xxxx@xxxx'
 alias pscp='papp_cloud scp'
 alias rm='trash-put'
-export COTTER=scb4580@bscc-a6:/public1/home/scb4580/waveHdiv
-export QUAD=scb4580@bscc-a6:/public1/home/scb4580/quad
-
 
 export https_proxy=http://127.0.0.1:7897
 export http_proxy=http://127.0.0.1:7897
@@ -159,10 +156,12 @@ alias noproxy='unset http_proxy https_proxy all_proxy'
 # MPI environment 2: openmpi-5.0.8 installed from source 
 # prefix = /opt/openmpi-5.0.8
 
+# MPI environment 3: Intel MPI installed from source
+# prefix = /opt/intel/oneapi/mpi/2021.7.0
 
 
-# export PETSC=/home/wugs/software/petsc-3.23.2/src/ksp/ksp/tutorials
 # Softs install path
+# --------------------
 export PETSC_DIR=/opt/petsc
 # export HDF5=/opt/hdf5-1.14.6-parallel
 # export NETCDF=/opt/netcdf-c-fortran
@@ -171,10 +170,7 @@ export PETSC_DIR=/opt/petsc
 # export PAPI=/opt/papi-7.2.0b2
 
 
-export PATH=/home/wugs/software/glvis-4.4:/home/wugs/bin:$PATH
-# export CPATH=$HDF5/include:$NETCDF/include:$PNETCDF/include:$PIO/include:$PAPI/include:$CPATH
-# export LIBRARY_PATH=$HDF5/lib:$NETCDF/lib:$PNETCDF/lib:$PIO/lib:$PAPI/lib:$LIBRARY_PATH
-# export LD_LIBRARY_PATH=$HDF5/lib:$NETCDF/lib:$PNETCDF/lib:$PIO/lib:$PAPI/lib:$LD_LIBRARY_PATH
+export PATH=/home/wugs/bin:$PATH
 
 export ACLOCAL_PATH=/usr/local/share/aclocal
 
@@ -203,3 +199,5 @@ setxkbmap -option caps:swapescape
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+

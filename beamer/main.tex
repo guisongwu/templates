@@ -4,9 +4,9 @@
 
 \title[Short Title]{Full Presentation Title}
 \subtitle{Optional Subtitle}
-\author[James Cook \and Roald Amundsen]{Capt. James Cook \and Roald Amundsen}
-\institute[UC]{University of Cambridge \\ \smallskip \textit{james@LaTeXTemplates.com}}
-\date[\today]{International Symposium of Explorers \\ \today}
+\author[Guisong Wu]{Guisong Wu}
+\institute[AMSS]{数学与系统科学研究院 \\ \smallskip \textit{wuguisong@lsec.cc.ac.cn}}
+\date[\today]{会议名称 \\ \today}
 
 % ============================
 \begin{document}
@@ -69,6 +69,41 @@
 
 \section{Table and Figure Examples}
 %------------------------------------------------
+\begin{frame}{Multiple Images Example}
+	\begin{figure}
+		\centering
+		\begin{columns}[c]
+			\begin{column}{0.48\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{Images/call-of-duty.jpeg}
+				\caption{Call of Duty}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{Images/f1-the-movie.jpg}
+				\caption{F1 The Movie}
+			\end{column}
+		\end{columns}
+		\vspace{0.05cm}
+		\begin{columns}[c]
+			\begin{column}{0.48\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{Images/naraka-bladepoint.jpeg}
+				\caption{Naraka Bladepoint}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{Images/your-name-shooting.jpg}
+				\caption{Your Name Shooting}
+			\end{column}
+		\end{columns}
+	\end{figure}
+\end{frame}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
 \begin{frame}
     \frametitle{Table \& Citation Example}
 	\framesubtitle{Subtitle} % Optional subtitle
@@ -88,29 +123,6 @@
 \end{frame}
 %------------------------------------------------
 
-
-%------------------------------------------------
-\begin{frame}
-    \frametitle{Multi-figure}
-    \begin{figure}[htbp] % 2 x 2
-        \centering
-        \begin{subfigure}[b]{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{call-of-duty.jpeg}
-            \caption{call of duty}
-            \label{fig:a}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{f1-the-movie.jpg}
-            \caption{f1 the movie}
-            \label{fig:b}
-        \end{subfigure}
-        \caption{my wallpapers}
-        \label{fig:wallpapers}
-    \end{figure}
-\end{frame}
-%------------------------------------------------
 
 
 \section{Mathematics}
