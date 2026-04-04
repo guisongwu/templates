@@ -31,9 +31,9 @@ set cindent
 set cinoptions=g0
 
 " Smooth Scrolling
+noremap H 5h
 noremap J 5j
 noremap K 5k
-noremap H 5h
 noremap L 5l
 
 " Enable move across lines with h,l
@@ -59,8 +59,6 @@ nnoremap r <C-w>r
 nnoremap <C-c> zc
 nnoremap <left> :vertical resize -5<CR>
 nnoremap <right> :vertical resize +5<CR>
-" nnoremap <up> :resize -2<CR>
-" nnoremap <down> :resize +2<CR>
 
 
 
@@ -77,6 +75,10 @@ nnoremap <leader>p "+p
 
 nnoremap <leader>sp :set paste<CR>
 nnoremap <leader>np :set nopaste<CR>
+
+" Enable folding with markers {{{ and }}}
+set foldmethod=marker
+set foldmarker={{{,}}}
 
 
 " =================================== Plugin Manager ===================================
@@ -129,10 +131,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-" let g:vimtex_fold_enabled = 1
-" set foldmethod=expr
-set foldmethod=marker
-set foldmarker={{{,}}}
 
 " ------------------------------------- markdown -------------------------------------
 let g:mkdp_auto_start = 0
@@ -144,15 +142,6 @@ nnoremap <C-p> :MarkdownPreviewToggle<CR>
 
 " ------------------------------------- Airline ---------------------------------------
 let g:airline#extensions#whitespace#enabled = 0
-" let g:airline#extensions#ale#enabled = 0
-" let g:airline#extensions#syntastic#enabled = 0
-" let g:airline#extensions#tagbar#enabled = 0
-" let g:airline#extensions#branch#enabled = 0
-" let g:airline#extensions#hunks#enabled = 0
-" let g:airline_section_a = airline#section#create(['mode'])
-" let g:airline_section_b = '%f'
-" let g:airline_section_c = ''
-" let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = '%l/%L : %c %p%%'
 
@@ -184,12 +173,11 @@ let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_auto_trigger = 1
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_hover_delay = 0
 let g:ycm_auto_hover = 0
+let g:ycm_hover_delay = 0
 let g:ycm_clangd_binary_path = "/usr/bin/clangd-20"
 
 " -------------------------------------- Copilot ---------------------------------------
-" Copilot 其他快捷键
 inoremap <C-j> <Plug>(copilot-next)
 inoremap <C-k> <Plug>(copilot-previous)
 inoremap <C-\> <Plug>(copilot-suggest)
