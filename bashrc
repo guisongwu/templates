@@ -126,17 +126,16 @@ fi
 #                               Personal Settings
 #
 # ================================================================================
-# papp_cloud login -u wleng@lsec.cc.ac.cn -p
-# 123456Lsec@
 
 
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export LC_ALL=C.UTF-8
 
 alias tags='ctags --exclude=@.tagsignore -R .'
 alias lc='latexmk -C -bibtex'
 alias lcc='latexmk -C -bibtex && rm -f *.nav *.snm *.vrb *.fls'
+alias gt='git status'
+alias bmake='bear -- make'
 
 alias papplogin='papp_cloud login -u wleng@lsec.cc.ac.cn -p'
 alias bscc='papp_cloud ssh scb4580@bscc-a6'
@@ -149,6 +148,7 @@ export QUAD=scb4580@bscc-a6:/public1/home/scb4580/quad
 export https_proxy=http://127.0.0.1:7897
 export http_proxy=http://127.0.0.1:7897
 export all_proxy=socks5://127.0.0.1:7897
+alias noproxy='unset http_proxy https_proxy all_proxy'
 
 
 # MPI environment 1: openmpi-4.1.6 installed via "sudo apt install libopenmpi-dev"
@@ -170,15 +170,19 @@ export PETSC_DIR=/opt/petsc
 # export PIO=/opt/pio-2.6.6
 # export PAPI=/opt/papi-7.2.0b2
 
+
 export PATH=/home/wugs/software/glvis-4.4:/home/wugs/bin:$PATH
-# export PATH=/home/wugs/bin:$HDF5/bin:$NETCDF/bin:$PNETCDF/bin:$PAPI/bin:$PATH
 # export CPATH=$HDF5/include:$NETCDF/include:$PNETCDF/include:$PIO/include:$PAPI/include:$CPATH
 # export LIBRARY_PATH=$HDF5/lib:$NETCDF/lib:$PNETCDF/lib:$PIO/lib:$PAPI/lib:$LIBRARY_PATH
 # export LD_LIBRARY_PATH=$HDF5/lib:$NETCDF/lib:$PNETCDF/lib:$PIO/lib:$PAPI/lib:$LD_LIBRARY_PATH
 
 export ACLOCAL_PATH=/usr/local/share/aclocal
-# source /opt/intel/oneapi/mkl/2025.1/env/vars.sh
 
+# ------------- xkb options --------------
+# if wish to swap capslock and escape, use
+setxkbmap -option caps:swapescape
+# if wish to recover the esc-caps, use 
+#    setxkbmap -option
 
 
 # # >>> conda initialize >>>
@@ -195,7 +199,6 @@ export ACLOCAL_PATH=/usr/local/share/aclocal
 # fi
 # unset __conda_setup
 # # <<< conda initialize <<<
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

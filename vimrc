@@ -26,8 +26,11 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
+" C/C++ specific indentation
+set cindent
+set cinoptions=g0
 
-" Smooth Scrolling 
+" Smooth Scrolling
 noremap J 5j
 noremap K 5k
 noremap H 5h
