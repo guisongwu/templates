@@ -126,6 +126,8 @@ fi
 #                               Personal Settings
 #
 # ================================================================================
+#
+#
 
 
 export LANG=en_US.UTF-8
@@ -136,11 +138,16 @@ alias lc='latexmk -C -bibtex'
 alias lcc='latexmk -C -bibtex && rm -f *.nav *.snm *.vrb *.fls'
 alias gt='git status'
 alias bmake='bear -- make'
+alias e='evince'
+alias vid='vimdiff'
 
 alias papplogin='papp_cloud login -u xxxx@xxxx -p'
 alias bscc='papp_cloud ssh xxxx@xxxx'
 alias pscp='papp_cloud scp'
 alias rm='trash-put'
+
+
+
 
 export https_proxy=http://127.0.0.1:7897
 export http_proxy=http://127.0.0.1:7897
@@ -152,12 +159,14 @@ alias noproxy='unset http_proxy https_proxy all_proxy'
 # bin:     /usr/bin
 # lib:     /usr/lib/x86_64-linux-gnu/openmpi/lib
 # include: /usr/lib/x86_64-linux-gnu/openmpi/include
+# export MPI_DIR=/usr/lib/x86_64-linux-gnu/openmpi
 
 # MPI environment 2: openmpi-5.0.8 installed from source 
 # prefix = /opt/openmpi-5.0.8
 
 # MPI environment 3: Intel MPI installed from source
-# prefix = /opt/intel/oneapi/mpi/2021.7.0
+# prefix = /opt/intel/oneapi/mpi/latest
+# export INTEL_MPI=/opt/intel/oneapi/mpi/latest
 
 
 # Softs install path
@@ -170,7 +179,10 @@ export PETSC_DIR=/opt/petsc
 # export PAPI=/opt/papi-7.2.0b2
 
 
-export PATH=/home/wugs/bin:$PATH
+export PATH=/opt/curl-8.19.0/bin:/home/wugs/.local/bin:/home/wugs/software/glvis-4.4:/home/wugs/bin:$PATH
+# export CPATH=$HDF5/include:$CPATH
+# export LIBRARY_PATH=/usr/lib:$LIBRARY_PATH
+# export LD_LIBRARY_PATH=$INTEL_MPI/lib:$HDF5/lib:$LD_LIBRARY_PATH
 
 export ACLOCAL_PATH=/usr/local/share/aclocal
 
