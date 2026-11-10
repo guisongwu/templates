@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# 使用 Bash 执行；启用严格模式，减少出错后仍继续执行的情况：
+# -e：命令失败时退出；-u：使用未定义变量时报错；pipefail：管道中任一命令失败即视为失败。
+set -euo pipefail
+
+# ==================== 同步目录：修改下面两个变量即可 ====================
+# 远程目录，格式为「主机别名:/绝对路径/」或「用户@主机:/绝对路径/」。
+# pc111 使用 ~/.ssh/config 中的连接配置；保留末尾的 /，表示同步目录内的内容。
+REMOTE_DIR='pc111:/root/guisong/docs/'
+
+# 本地目录：$HOME 表示当前用户的家目录，也可以改成其他绝对路径。
+# 保留双引号，以支持路径中包含空格；双引号内请用 $HOME，不要用 ~。
+LOCAL_DIR="$HOME/evtol/docs/"
+# ======================================================================
+
+# 从远端拉取新增或有变化的文件到本地。
+# 默认通过文件大小和修改时间判断是否需要传输，未变化的文件内容会跳过。
+# 同名文件有差异时以远端为准；未使用 --delete，因此保留本地独有的文件。
+#
+# rsync 参数说明：
+# --archive：递归同步子目录，保留修改时间、权限、符号链接等信息。
+#            保留修改时间，也便于下次运行时判断文件是否变化。
+# --compress：传输时压缩数据，减少网络流量。
+# --human-readable：用易读的单位显示大小。
+# --itemize-changes：逐项列出新增、内容变化或属性变化的文件。
+# 用 Bash 数组保存参数，方便按需追加 --dry-run。
+rsync_args=(--archive --compress --human-readable --itemize-changes)
+
+# "$@" 表示用户传入的全部参数，例如 syncfile --dry-run 中的 --dry-run。
+for arg in "$@"; do
+    case "$arg" in
+        # 只预览 rsync 将执行的操作，不传输文件或修改目标文件属性。
+        --dry-run) rsync_args+=(--dry-run) ;;
+        # 显示帮助后直接退出，不执行同步。
+        -h|--help)
+            printf '%s\n' \
+                'Usage: syncfile [--dry-run]' \
+                "Sync $REMOTE_DIR to $LOCAL_DIR." \
+                'Unchanged files are skipped; local-only files are kept.'
+            exit 0
+            ;;
+        # 未知参数写入标准错误（>&2），用非零状态码表示参数错误。
+        *)
+            printf 'Unknown option: %s\nUsage: syncfile [--dry-run]\n' "$arg" >&2
+            exit 2
+            ;;
+    esac
+done
+
+# -p 会按需创建父目录，目录已存在时无需处理。
+# 注意：即使指定 --dry-run，这一步仍会创建尚不存在的目标目录。
+mkdir -p -- "$LOCAL_DIR"
+
+# 使用开头配置的远程目录和本地目录，通过 SSH 执行同步。
+# "${rsync_args[@]}" 将数组中的每一项作为独立参数传给 rsync。
+# -- 表示选项结束，后面是源路径和目标路径。
+# exec 用 rsync 替换当前脚本进程，命令的退出状态直接反映同步结果。
+exec rsync "${rsync_args[@]}" -- "$REMOTE_DIR" "$LOCAL_DIR"
