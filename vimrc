@@ -57,15 +57,15 @@ cnoreabbrev vr vertical resize
 nnoremap z <C-w>w
 nnoremap r <C-w>r
 nnoremap <C-c> zc
-nnoremap <left> :vertical resize -5<CR>
-nnoremap <right> :vertical resize +5<CR>
+" nnoremap <left> :vertical resize -5<CR>
+" nnoremap <right> :vertical resize +5<CR>
 
 
 
 " Auto return to last edit position when opening a file
 autocmd BufReadPost *
-	    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-		\ |   exe "normal! g`\""
+        \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ |   exe "normal! g`\""
         \ | endif
 
 
@@ -82,6 +82,8 @@ set foldmarker={{{,}}}
 
 
 " =================================== Plugin Manager ===================================
+let g:vim_markdown_math = 1
+let g:vim_markdown_folding_disabled = 1
 call plug#begin()
 
 " List your plugins here
@@ -100,7 +102,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
 Plug 'wakatime/vim-wakatime'
-Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -110,7 +111,7 @@ call plug#end()
 " =================================== Plugin Configurations ===================================
 "
 " --------------------------------------Snazzy -----------------------------------------
-" let g:SnazzyTransparent = 1
+let g:SnazzyTransparent = 1
 color snazzy
 
 " ------------------------------------- vimtex --------------------------------------
@@ -153,17 +154,17 @@ nnoremap tf :NERDTreeFind<CR>
 
 " ----------------------------------- nerdtree-git -------------------------------------
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-			\ 'Modified'  :'✹',
-			\ 'Staged'    :'✚',
-			\ 'Untracked' :'✭',
-			\ 'Renamed'   :'➜',
-			\ 'Unmerged'  :'═',
-			\ 'Deleted'   :'✖',
-			\ 'Dirty'     :'✗',
-			\ 'Ignored'   :'☒',
-			\ 'Clean'     :'✔︎',
-			\ 'Unknown'   :'?',
-			\ }
+            \ 'Modified'  :'✹',
+            \ 'Staged'    :'✚',
+            \ 'Untracked' :'✭',
+            \ 'Renamed'   :'➜',
+            \ 'Unmerged'  :'═',
+            \ 'Deleted'   :'✖',
+            \ 'Dirty'     :'✗',
+            \ 'Ignored'   :'☒',
+            \ 'Clean'     :'✔︎',
+            \ 'Unknown'   :'?',
+            \ }
 
 " --------------------------------------- YCM ------------------------------------------ 
 nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -176,11 +177,6 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_auto_hover = 0
 let g:ycm_hover_delay = 0
 let g:ycm_clangd_binary_path = "/usr/bin/clangd-20"
-
-" -------------------------------------- Copilot ---------------------------------------
-inoremap <C-j> <Plug>(copilot-next)
-inoremap <C-k> <Plug>(copilot-previous)
-inoremap <C-\> <Plug>(copilot-suggest)
 
 " ----------------------------------- vim-easy-align -----------------------------------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
